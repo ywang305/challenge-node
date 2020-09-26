@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Recorder Test</title>
+	</head>
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root">hello world!!</div>
+		<div>
+			<button onclick="startRec()">start</button>
+			<button onclick="exportRec()">export WAV</button>
+			<button onclick="stopRec()">stop</button>
+			<button onclick="generateBlob()">repeat Export</button>
+		</div>
+
+		<script src="rec.js"></script>
+
+		<script>
+			const ar = new AudioRecorder();
+
+			async function startRec() {
+				await ar.start();
+			}
+			async function exportRec() {
+				const blob = await ar.exportBlob();
+			}
+			async function stopRec() {
+				await ar.stop();
+			}
+			function repeatExport() {
+				ar.repeatlyExportBlob((blob) => {
+					console.log('blobURL: ', URL.createObjectURL(blob));
+				});
+			}
+			async function generateBlob() {
+				const generator = await ar.generateBlob();
+				for await (const blob of generator) {
+					console.log('blobURL: ', URL.createObjectURL(blob));
+				}
+			}
+		</script>
+	</body>
+</html>
