@@ -5,6 +5,7 @@ const autoCatch = require('./lib/auto-catch'); // hight-level function for try c
 module.exports = autoCatch({
 	getProduct,
 	listProducts,
+	createProduct,
 });
 
 async function getProduct(req, res, next) {
@@ -22,4 +23,9 @@ async function listProducts(req, res) {
 		tag,
 	});
 	res.json(products);
+}
+
+async function createProduct(req, res, next) {
+	const product = await Products.create(req.body);
+	res.json(product);
 }
