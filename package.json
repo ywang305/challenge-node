@@ -5,7 +5,7 @@
 	"main": "src/index.js",
 	"scripts": {
 		"start": "nodemon --watch public --watch src src/index.js",
-		"fullstack": "nodemon --watch src/fullstack_node src/fullstack_node/server.js",
+		"fullstack": "nodemon --watch src/fullstack_node --inspect src/fullstack_node/server.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "",

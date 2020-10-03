@@ -6,6 +6,8 @@ module.exports = autoCatch({
 	getProduct,
 	listProducts,
 	createProduct,
+	editProduct,
+	deleteProduct,
 });
 
 async function getProduct(req, res, next) {
@@ -28,4 +30,15 @@ async function listProducts(req, res) {
 async function createProduct(req, res, next) {
 	const product = await Products.create(req.body);
 	res.json(product);
+}
+
+async function editProduct(req, res, next) {
+	const change = req.body;
+	const product = await Products.edit(req.params.id, change);
+	res.json(product);
+}
+
+async function deleteProduct(req, res, next) {
+	await Products.remove(req.params.id);
+	res.json({ success: true });
 }

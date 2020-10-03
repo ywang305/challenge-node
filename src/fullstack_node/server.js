@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 app.get('/products', handler.listProducts);
 app.get('/products/:id', handler.getProduct);
 app.post('/products', handler.createProduct);
+app.put('/products/:id', handler.editProduct);
+app.delete('/products/:id', handler.deleteProduct);
 app.use(middleware.handleError);
 app.use(middleware.notFound);
 
