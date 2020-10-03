@@ -2,9 +2,9 @@ function autoCatch(obj) {
 	const wrapper = {};
 	Object.keys(obj).forEach((k) => {
 		const handler = obj[k];
-		wrapper[k] = (req, res, next) => {
+		wrapper[k] = async (req, res, next) => {
 			try {
-				handler(req, res, next);
+				await handler(req, res, next);
 			} catch (err) {
 				return next(err);
 			}
