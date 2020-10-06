@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Wav Receiver</title>
+	</head>
+	<body>
+		<noscript>You need to enable JavaScript to run this app.</noscript>
+		<div id="root">Receive wav that pieced from all senders</div>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			const socket = io();
+			socket.on('audio/wav-all', (arraybuffer) => {
+				const blob = new Blob([arraybuffer], { type: 'audio/wav' });
+				console.log('blobURL: ', URL.createObjectURL(blob));
+			});
+		</script>
+	</body>
+</html>

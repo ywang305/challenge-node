@@ -6,6 +6,7 @@
 	"scripts": {
 		"start": "nodemon --watch public --watch src src/index.js",
 		"fullstack": "nodemon --watch src/fullstack_node --inspect src/fullstack_node/server.js",
+		"audio": "nodemon --watch src/audio/server.js --watch src/audio/shell_test --inspect src/audio/server.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "",
@@ -14,6 +15,8 @@
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"mongoose": "^5.10.7",
+		"socket.io": "^2.3.0",
+		"socket.io-stream": "^0.9.1",
 		"validator": "^13.1.17"
 	},
 	"devDependencies": {
