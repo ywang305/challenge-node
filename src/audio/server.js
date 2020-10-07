@@ -18,8 +18,10 @@ const httpsServer = https.createServer(
 	app
 );
 
-const io = require('socket.io')(httpServer);
-const ios = require('socket.io')(httpsServer);
+// choose https or http
+let isTLS = true;
+const SERVER = isTLS ? httpsServer : httpServer;
+const io = require('socket.io')(SERVER);
 
 const inputDir = path.resolve(__dirname, 'input');
 const listFile = path.resolve(inputDir, 'list.txt');
@@ -38,7 +40,6 @@ function onSocketConnect(socket) {
 }
 
 io.on('connection', onSocketConnect);
-ios.on('connection', onSocketConnect);
 
 function sleep(ms) {
 	return new Promise((rsv) => {
@@ -75,14 +76,10 @@ app.get('/collect', async (req, res) => {
 });
 
 const port = process.env.PORT || 1337;
-const port2 = 1338;
 
-httpServer.listen(port, () => {
-	console.log(`Audio app listening at http://localhost:${port}`);
+SERVER.listen(port, () => {
+	console.log(
+		`Audio app listening at ${isTLS ? 'https' : 'http'}://localhost:${port}`
+	);
 	emitWavToClient(io);
-});
-
-httpsServer.listen(port2, () => {
-	console.log(`Audio app also listening at https://localhost:${port2}`);
-	emitWavToClient(ios);
 });
