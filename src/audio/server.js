@@ -2,25 +2,31 @@ require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
 const fsp = fs.promises;
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
-
-const port = process.env.PORT || 1337;
+const https = require('https');
+const http = require('http');
 
 const express = require('express');
 const app = express();
 app.use(express.static(path.resolve('public')));
 
-const server = require('http').createServer(app);
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(
+	{
+		key: fs.readFileSync(path.resolve('./tls', 'server.key')),
+		cert: fs.readFileSync(path.resolve('./tls', 'server.cert')),
+	},
+	app
+);
 
-const io = require('socket.io')(server);
+const io = require('socket.io')(httpServer);
+const ios = require('socket.io')(httpsServer);
 
 const inputDir = path.resolve(__dirname, 'input');
 const listFile = path.resolve(inputDir, 'list.txt');
 const outDir = path.join(__dirname, 'output');
 const outFile = path.join(outDir, 'out.wav');
 
-io.on('connection', (socket) => {
+function onSocketConnect(socket) {
 	socket.on('audio/wav', async (buffer) => {
 		console.log('. . . rcvd audio/wav on socket');
 		const filename = `${Date.now()}.wav`;
@@ -29,7 +35,10 @@ io.on('connection', (socket) => {
 		const listItem = 'file ' + filename + '\n';
 		await fsp.writeFile(listFile, listItem, { flag: 'a' });
 	});
-});
+}
+
+io.on('connection', onSocketConnect);
+ios.on('connection', onSocketConnect);
 
 function sleep(ms) {
 	return new Promise((rsv) => {
@@ -39,10 +48,10 @@ function sleep(ms) {
 
 const { cmd } = require('./shell_test/cmd');
 
-async function emitWavToClient() {
+async function emitWavToClient(socketIO) {
 	const script = `rm -f ${outDir}/* && ffmpeg -f concat -i ${listFile} ${outFile}`;
 	while (true) {
-		await sleep(10000);
+		await sleep(1000 * 60 * 2);
 		const files = await fsp.readdir(inputDir);
 		if (files.length === 0) {
 			continue;
@@ -54,29 +63,9 @@ async function emitWavToClient() {
 			await fsp.unlink(path.join(inputDir, file));
 		}
 		const buffer = await fsp.readFile(outFile);
-		io.emit('audio/wav-all', buffer);
+		socketIO.emit('audio/wav-all', buffer);
 	}
 }
-
-/*
-fs.watch(outDir, async (eventType, filename) => {
-	if (eventType === 'rename' && filename === 'out.wav') {
-		try {
-			await fsp.access(outFile); // out.wav is new generated
-			await sleep(5000); // give ffmpeg time to finish writing
-
-			const files = await fsp.readdir(inputDir);
-			for (const file of files) {
-				await fsp.unlink(path.join(inputDir, file));
-			}
-			const buffer = await fsp.readFile(outFile);
-			io.emit('audio/wav', buffer);
-		} catch (err) {
-			// console.error(err.message + '  :  ' + ' no such file');
-		}
-	}
-});
-*/
 
 app.get('/collect', async (req, res) => {
 	const stat = await fsp.stat(outFile);
@@ -85,7 +74,15 @@ app.get('/collect', async (req, res) => {
 	fs.createReadStream(outFile).pipe(res);
 });
 
-server.listen(port, () => {
+const port = process.env.PORT || 1337;
+const port2 = 1338;
+
+httpServer.listen(port, () => {
 	console.log(`Audio app listening at http://localhost:${port}`);
-	emitWavToClient();
+	emitWavToClient(io);
+});
+
+httpsServer.listen(port2, () => {
+	console.log(`Audio app also listening at https://localhost:${port2}`);
+	emitWavToClient(ios);
 });
