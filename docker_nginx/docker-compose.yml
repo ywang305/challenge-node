@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  nginx_srv:
+    restart: always
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - 80:80
+      - 433:433
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./test_nginx:/usr/share/nginx/html # override nginx/html/index.html
+    network_mode: 'host'
