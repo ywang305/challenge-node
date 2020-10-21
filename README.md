@@ -12,3 +12,6 @@ audio file wav collecting, piecing together
 - nginx' default.conf
   - which is loaded by niginx main conf, so just modifiy this one.
 <img src="https://github.com/ywang305/challenge-node/blob/master/screenshots/nginx_docker.png"/>
+
+### Fullstack Nodejs
+![MongoDB doc关系](https://github.com/ywang305/challenge-node/blob/master/screenshots/Fullstack_Mongo_Doc_Ref.png)
