@@ -24,4 +24,5 @@ audio file wav collecting, piecing together
     - Since version 1.5.0, the cookie-parser middleware no longer needed by express-session
     - Passport is middleware of Express, while passport-local is strategy middleware of Passport.
     - passport-local default uses { username, password }, and stored in memory - restart server cleans everything inside.
+    
     ![login success with cookie](https://github.com/ywang305/challenge-node/blob/master/screenshots/login_success_with_cookie.png)
