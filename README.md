@@ -26,3 +26,7 @@ audio file wav collecting, piecing together
     - passport-local default uses { username, password }, and stored in memory - restart server cleans everything inside.
     
     ![login success with cookie](https://github.com/ywang305/challenge-node/blob/master/screenshots/login_success_with_cookie.png)
+    
+  - jsonwebtoken
+    - res.cookie('jwt', token, { httpOnly: true })  // If client browser automatically deal with it
+	  - res.json({ success: true, token: token })   // If client prefer use authorization headers
