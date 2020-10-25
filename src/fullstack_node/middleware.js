@@ -26,7 +26,11 @@ function handleError(err, req, res, next) {
 	res.headersSent is false within a custom error handler. See Error Handling⁵⁶ in the official
 	express documentation for more information. */
 
-	res.status(500).json({ error: 'Internal Error' });
+	const statusCode = err.statusCode || 500;
+	const errorMessage =
+		require('http').STATUS_CODES[statusCode] || 'Internal Error'; // could be 401, Unauthorized
+
+	res.status(statusCode).json({ error: errorMessage });
 }
 
 function notFound(req, res) {

@@ -6,7 +6,7 @@ function autoCatch(obj) {
 			try {
 				await handler(req, res, next);
 			} catch (err) {
-				return next(err);
+				return next(err); // mongoose model validation exception
 			}
 		};
 	});

@@ -1,4 +1,4 @@
-const Order = require('./persist/order');
+const Order = require('../persist/order');
 
 async function get(_id) {
 	const order = await Order.findById(_id).populate('products').exec();

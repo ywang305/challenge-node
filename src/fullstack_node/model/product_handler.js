@@ -1,7 +1,7 @@
 // @ts-ignore
 const Products = require('./products');
 // @ts-ignore
-const autoCatch = require('./lib/auto-catch'); // hight-level function for try catch
+const autoCatch = require('../lib/auto-catch'); // hight-level function for try catch
 module.exports = autoCatch({
 	getProduct,
 	listProducts,

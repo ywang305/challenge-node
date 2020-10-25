@@ -1,4 +1,4 @@
-const Product = require('./persist/product');
+const Product = require('../persist/product');
 
 module.exports = { get, list, create, edit, remove };
 
