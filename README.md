@@ -29,4 +29,4 @@ audio file wav collecting, piecing together
     
   - jsonwebtoken
     - res.cookie('jwt', token, { httpOnly: true })  // If client browser automatically deal with it
-	  - res.json({ success: true, token: token })   // If client prefer use authorization headers
+    - res.json({ success: true, token: token })   // If client prefer use authorization headers
