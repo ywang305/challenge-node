@@ -4,14 +4,14 @@ const bodyParser = require('body-parser');
 const productHandler = require('./model/product_handler');
 const orderHandler = require('./model/order_handler');
 const middleware = require('./middleware');
-const auth = require('./auth_cookie');
+const auth = require('./auth_jwt'); //require('./auth_cookie');
 
 const port = process.env.PORT || 1337;
 const app = express();
 
 app.use(middleware.cors);
 app.use(bodyParser.json());
-auth.setMiddleware(app);
+//auth.setMiddleware(app);
 
 app.post('/login', auth.authenticate, auth.login);
 

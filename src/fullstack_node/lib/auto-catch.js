@@ -1,14 +1,19 @@
-function autoCatch(obj) {
-	const wrapper = {};
-	Object.keys(obj).forEach((k) => {
-		const handler = obj[k];
-		wrapper[k] = async (req, res, next) => {
+function autoCatch(target) {
+	if(typeof target === 'function') {
+		return async (req, res, next) => {
 			try {
-				await handler(req, res, next);
+				await target(req, res, next);
 			} catch (err) {
 				return next(err); // mongoose model validation exception
 			}
 		};
+	}
+
+
+	const wrapper = {};
+	Object.keys(target).forEach((k) => {
+		const handler = target[k];
+		wrapper[k] = autoCatch(handler);
 	});
 	return wrapper;
 }

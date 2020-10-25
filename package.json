@@ -5,7 +5,8 @@
 	"main": "src/index.js",
 	"scripts": {
 		"start": "nodemon --watch public --watch src src/index.js",
-		"fullstack": "nodemon --watch src/fullstack_node --inspect src/fullstack_node/server.js",
+		"fullstack": "nodemon --watch src/fullstack_node src/fullstack_node/server.js",
+		"dev-fullstack": "nodemon --watch src/fullstack_node --inspect src/fullstack_node/server.js",
 		"audio": "nodemon --watch src/audio/server.js --watch src/audio/shell_test --inspect src/audio/server.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -15,6 +16,7 @@
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
 		"express-session": "^1.17.1",
+		"jsonwebtoken": "^8.5.1",
 		"mongoose": "^5.10.7",
 		"passport": "^0.4.1",
 		"passport-local": "^1.0.0",
