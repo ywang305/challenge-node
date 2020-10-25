@@ -14,4 +14,7 @@ audio file wav collecting, piecing together
 <img src="https://github.com/ywang305/challenge-node/blob/master/screenshots/nginx_docker.png"/>
 
 ### Fullstack Nodejs
+- express middleware: CORS, exception,
+- persist mongoose: validator, ref, populate
+
 ![MongoDB doc关系](https://github.com/ywang305/challenge-node/blob/master/screenshots/Fullstack_Mongo_Doc_Ref.png)
