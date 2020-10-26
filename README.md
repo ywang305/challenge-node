@@ -32,5 +32,7 @@ audio file wav collecting, piecing together
     - res.cookie('jwt', token, { httpOnly: true })  // If client browser automatically deal with it
     - res.json({ success: true, token: token })   // If client prefer use authorization headers
   - model: User
-    - unique username validator
+    - unique username validator:   
+      (1) isUnique can't use in lambda => wrong capturing "this", use in function!
+      (2) _id is Object ref, === compare always false!  comparing by String(doc1._id) === String(doc2._id)
     - bcrypt: hashing password
