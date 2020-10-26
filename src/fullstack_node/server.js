@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const productHandler = require('./model/product_handler');
 const orderHandler = require('./model/order_handler');
+const userHandler = require('./model/user_handler');
 const middleware = require('./middleware');
 const auth = require('./auth_jwt'); //require('./auth_cookie');
 
@@ -25,6 +26,12 @@ app.get('/orders', auth.ensureAdmin, orderHandler.listOrders);
 app.get('/orders/:id', orderHandler.getOrder);
 app.post('/orders', auth.ensureAdmin, orderHandler.createOrder);
 app.delete('/orders/:id', auth.ensureAdmin, orderHandler.deleteOrder);
+
+app.get('/users', userHandler.listUsers);
+app.get('/users/:username', userHandler.getUser);
+app.post('/users', userHandler.createUser);
+app.put('/users/:username', userHandler.editUser);
+app.delete('/users/:username', userHandler.deleteUser);
 
 app.use(middleware.handleError);
 app.use(middleware.notFound);
