@@ -16,17 +16,21 @@ audio file wav collecting, piecing together
 ### Fullstack Nodejs
 - express middleware: CORS, exception,
 - persist mongoose: validator, ref, populate
+- model: Product, Order
 
 ![MongoDB doc关系](https://github.com/ywang305/challenge-node/blob/master/screenshots/Fullstack_Mongo_Doc_Ref.png)
 
 - passport middleware for authentication
-  - express-session, passport-local
+  - Admin with Cookie
     - Since version 1.5.0, the cookie-parser middleware no longer needed by express-session
     - Passport is middleware of Express, while passport-local is strategy middleware of Passport.
     - passport-local default uses { username, password }, and stored in memory - restart server cleans everything inside.
     
     ![login success with cookie](https://github.com/ywang305/challenge-node/blob/master/screenshots/login_success_with_cookie.png)
     
-  - jsonwebtoken
+  - Admin with jsonwebtoken
     - res.cookie('jwt', token, { httpOnly: true })  // If client browser automatically deal with it
     - res.json({ success: true, token: token })   // If client prefer use authorization headers
+  - model: User
+    - unique username validator
+    - bcrypt: hashing password
