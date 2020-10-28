@@ -18,14 +18,14 @@ app.post('/login', auth.authenticate, auth.login);
 
 app.get('/products', productHandler.listProducts);
 app.get('/products/:id', productHandler.getProduct);
-app.post('/products', auth.ensureAdmin, productHandler.createProduct);
-app.put('/products/:id', auth.ensureAdmin, productHandler.editProduct);
-app.delete('/products/:id', auth.ensureAdmin, productHandler.deleteProduct);
+app.post('/products', auth.ensureUser, productHandler.createProduct);
+app.put('/products/:id', auth.ensureUser, productHandler.editProduct);
+app.delete('/products/:id', auth.ensureUser, productHandler.deleteProduct);
 
-app.get('/orders', auth.ensureAdmin, orderHandler.listOrders);
+app.get('/orders', auth.ensureUser, orderHandler.listOrders);
 app.get('/orders/:id', orderHandler.getOrder);
-app.post('/orders', auth.ensureAdmin, orderHandler.createOrder);
-app.delete('/orders/:id', auth.ensureAdmin, orderHandler.deleteOrder);
+app.post('/orders', auth.ensureUser, orderHandler.createOrder);
+app.delete('/orders/:id', orderHandler.deleteOrder);
 
 app.get('/users', userHandler.listUsers);
 app.get('/users/:username', userHandler.getUser);

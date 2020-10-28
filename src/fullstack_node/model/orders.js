@@ -15,8 +15,15 @@ async function remove(_id) {
 }
 
 async function list(opts = {}) {
-	const { offset = 0, limit = 25 } = opts;
-	const orders = await Order.find({}) /* find all, may return empty [] */
+	const { offset = 0, limit = 25, status, username } = opts;
+	const query = {};
+	if (status) {
+		query.status = status;
+	}
+	if (username) {
+		query.username = username;
+	}
+	const orders = await Order.find(query) /* find all, may return empty [] */
 		.sort({ _id: 1 })
 		.skip(offset)
 		.limit(limit);

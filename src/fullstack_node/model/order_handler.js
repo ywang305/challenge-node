@@ -8,8 +8,10 @@ module.exports = autoCatch({
 });
 
 async function createOrder(req, res) {
-	const product = await Orders.create(req.body);
-	res.json(product);
+	const fields = req.body;
+	if (!req.isAdmin) fields.username = req.user.username;
+	const order = await Orders.create(fields);
+	res.json(order);
 }
 
 async function getOrder(req, res, next) {
@@ -20,11 +22,14 @@ async function getOrder(req, res, next) {
 }
 
 async function listOrders(req, res) {
-	const { offset = 0, limit = 25 } = req.query;
-	const orders = await Orders.list({
+	const { offset = 0, limit = 25, status } = req.query;
+	const opts = {
 		offset: Number(offset),
 		limit: Number(limit),
-	});
+		status,
+	};
+	if (!req.isAdmin) opts.username = req.user.username;
+	const orders = await Orders.list(opts);
 	res.json(orders);
 }
 

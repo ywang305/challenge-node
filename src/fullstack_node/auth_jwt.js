@@ -15,7 +15,7 @@ const authenticate = passport.authenticate('local', { session: false }); // no s
 module.exports = {
 	authenticate,
 	login: autoCatch(login),
-	ensureAdmin: autoCatch(ensureAdmin),
+	ensureUser: autoCatch(ensureUser),
 };
 
 async function login(req, res, next) {
@@ -30,10 +30,15 @@ async function login(req, res, next) {
 		it’s nice to provide it to them in the body.
 	 */
 }
-function ensureAdmin(req, res, next) {
+
+async function ensureUser(req, res, next) {
 	const jwtString = req.headers.authorization || req.cookies.jwt;
-	const payload = verify(jwtString);
-	if (payload.username === 'admin') return next();
+	const payload = await verify(jwtString);
+	if (payload.username) {
+		req.user = payload;
+		if (req.user.username === 'admin') req.isAdmin = true;
+		return next();
+	}
 	const err = new Error('Unauthorized');
 	err.statusCode = 401;
 	next(err);
