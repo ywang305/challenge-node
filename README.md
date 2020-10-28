@@ -36,3 +36,7 @@ audio file wav collecting, piecing together
       (1) isUnique can't use in lambda => wrong capturing "this", use in function!
       (2) _id is Object ref, === compare always false!  comparing by String(doc1._id) === String(doc2._id)
     - bcrypt: hashing password
+   - find-grained access
+    
+    ![find-grained access](https://github.com/ywang305/challenge-node/blob/master/screenshots/authorize%26authenticate.png)
+    
