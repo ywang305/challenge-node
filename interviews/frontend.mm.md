@@ -138,7 +138,7 @@ Function.prototype.myCall = function (context, ...args) {
 ```js
 function myInstanceOf(son, fatherType) {
     //沿着父亲的原型链向上查找是否有儿子的原型
-    if (!son.__proto__) return false;
+    if (!son.__proto__ || !fatherType.prototype) return false;
     if (son.__proto__ === fatherType.prototype) return true;
     return myInstanceOf(son, fatherType.prototype);
 }
