@@ -14,24 +14,7 @@ function flatten(arr) {
 }
 ```
 
-## 深拷贝
 
-```js
-function copy(obj, appeard = new Map()) {
-    if (!(obj instanceof Object)) return obj; //如果是原始数据类型
-    if (appeard.has(obj)) return appeard.get(obj); //如果已经出现过
-
-    let result = Array.isArray(obj) ? [] : {};
-    appeard.set(obj, result); //将新对象放入map
-
-    //遍历所有属性进行递归拷贝
-    [...Object.keys(obj), ...Object.getOwnPropertySymbols(obj)].forEach(
-        key => (result[key] = copy(obj[key], appeard))
-    );
-
-    return result;
-}
-```
 
 ## 去除空格 - trim()
 
@@ -147,7 +130,7 @@ myInstanceOf([], Array); // true
 ```
 
 ## Clone
-```
+```js
 function cloneDeep(target,map = new WeakMap()) {
   if(typeOf taret ==='object'){
      let cloneTarget = Array.isArray(target) ? [] : {};
