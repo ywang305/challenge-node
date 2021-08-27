@@ -41,6 +41,32 @@ function combine(str) {
 }
 ```
 
+```
+function permute(arr) {
+  if (arr.length === 1) return [arr];
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    const item = arr[i];  // 取出一个
+    const subs = permute(arr.slice(0, i).concat(arr.slice(i + 1))); // 剩余递归
+    subs.forEach((subArr) => {
+      res.push([item, ...subArr]);  // 取出一个放到特地定位置，比如首位置
+    });
+  }
+  return res;
+}
+
+const res = permute([1, 2, 4]);
+console.log(res);
+[
+  [ 1, 2, 4 ],
+  [ 1, 4, 2 ],
+  [ 2, 1, 4 ],
+  [ 2, 4, 1 ],
+  [ 4, 1, 2 ],
+  [ 4, 2, 1 ]
+]
+```
+
 ## 归并排序
 
 ```js
