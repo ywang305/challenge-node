@@ -26,22 +26,28 @@ function myTrim(str) {
 
 ## 字符串全排列
 
-```js
-function combine(str) {
-    //抽出一个字符s,对其余的进行排列,将s放在每种排列开头
-    if (str.length === 1) return [str];
-    let results = [];
-    for (let i in str) {
-        for (let s of combine(str.slice(0, i) + str.slice(1 + +i))) {
-            results.push(str[i] + s);
-        }
-    }
-    //可能会出现类似"aa"=>[aa,aa,aa,aa]的情况,需要去重
-    return [...new Set(results)];
+```
+// 返回 [字符串], 去重
+function permute(arr) {
+  if (arr.length === 1) return arr;
+  let res = new Set(); //  去重
+  for (let i = 0; i < arr.length; ++i) {
+    const item = arr[i];
+    const subStrs = permute(arr.slice(0, i).concat(arr.slice(i + 1)));
+    subStrs.forEach((subStr) => {
+      res.add(item + "," + subStr);
+    });
+  }
+  return [...res];
 }
+
+const res = permute([1, 2, 1]);
+console.log(res);
+[ '1,2,1', '1,1,2', '2,1,1' ]
 ```
 
 ```
+// 返回[数组]， 不去重
 function permute(arr) {
   if (arr.length === 1) return [arr];
   let res = [];
