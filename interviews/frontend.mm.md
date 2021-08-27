@@ -29,8 +29,8 @@ function myTrim(str) {
 ```
 // 返回 [字符串], 去重
 function permute(arr) {
-  if (arr.length === 1) return arr;
-  let res = new Set(); //  去重
+  if (arr.length === 1) return new Set(arr);
+  let res = new Set();
   for (let i = 0; i < arr.length; ++i) {
     const item = arr[i];
     const subStrs = permute(arr.slice(0, i).concat(arr.slice(i + 1)));
@@ -38,12 +38,11 @@ function permute(arr) {
       res.add(item + "," + subStr);
     });
   }
-  return [...res];
+  return res;
 }
 
 const res = permute([1, 2, 1]);
-console.log(res);
-[ '1,2,1', '1,1,2', '2,1,1' ]
+console.log([...res]);
 ```
 
 ```
