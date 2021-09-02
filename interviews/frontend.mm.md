@@ -7,7 +7,7 @@
        <details>
        <summary>基础</summary>
        <ul>
-         <li>[扁平化](#扁平化)</li>
+         <li><a href="#扁平化">扁平化</a></li>
         <li><a href="#去除空格trim">去除空格</a></li>
         <li><a href="#全排列">全排列</a></li>
         <li><a href="#组合">组合</a></li>
