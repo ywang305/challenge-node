@@ -3,21 +3,37 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#扁平化">扁平化</a></li>
-    <li><a href="#去除空格trim">去除空格</a></li>
-    <li><a href="#全排列">全排列</a></li>
-    <li><a href="#组合">组合</a></li>
-    <li><a href="#归并排序">归并排序</a></li>
-    <li><a href="#快速排序">Contact</a></li>
-    <li><a href="#setTimeout实现setInterval">setTimeout 实现 setInterval</a></li>
-    <li><a href="#防抖">防抖</a></li>
-    <li><a href="#call">call</a></li>
-    <li><a href="#InstanceOf">InstanceOf</a></li>
-    <li><a href="#Clone">Clone</a></li>
+    <li>
+       <details>
+       <summary><a href="#基础">基础</a></summary>
+       <ul>
+        <li><a href="#扁平化">扁平化</a></li>
+        <li><a href="#去除空格trim">去除空格</a></li>
+        <li><a href="#全排列">全排列</a></li>
+        <li><a href="#组合">组合</a></li>
+        <li><a href="#归并排序">归并排序</a></li>
+        <li><a href="#快速排序">Contact</a></li>
+        <li><a href="#setTimeout实现setInterval">setTimeout 实现 setInterval</a></li>
+        <li><a href="#防抖">防抖</a></li>
+        <li><a href="#call">call</a></li>
+        <li><a href="#InstanceOf">InstanceOf</a></li>
+        <li><a href="#Clone">Clone</a></li>
+      </ul>
+      </details>
+    </li>
+    <li>
+      <details>
+      <summary><a href="#Leetcode">Leetcode</a></summary>
+      <ul>
+        <li><a href="#39 Combination Sum">39. Combination Sum </a></li>  
+      </ul>
+      </details>
+    </li>
 
   </ol>
 </details>
 
+# 基础
 
 ## 扁平化
 
@@ -266,3 +282,7 @@ function cloneDeep(target,map = new WeakMap()) {
 }
 
 ```
+
+# Leetcode
+
+## 39 Combination Sum
