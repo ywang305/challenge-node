@@ -5,7 +5,8 @@
   <ol>
     <li><a href="#扁平化">扁平化</a></li>
     <li><a href="#去除空格trim">去除空格</a></li>
-    <li><a href="#字符串全排列">字符串全排列</a></li>
+    <li><a href="#全排列">全排列</a></li>
+    <li><a href="#组合">组合</a></li>
     <li><a href="#归并排序">归并排序</a></li>
     <li><a href="#快速排序">Contact</a></li>
     <li><a href="#setTimeout实现setInterval">setTimeout 实现 setInterval</a></li>
@@ -44,7 +45,7 @@ function myTrim(str) {
 }
 ```
 
-## 字符串全排列
+## 全排列
 
 ```
 // 返回 [字符串], 去重
@@ -91,6 +92,70 @@ console.log(res);
   [ 4, 2, 1 ]
 ]
 ```
+
+## 组合
+```
+// 返回 [字符串], 去重
+function combine(arr, k) {
+  if (k === 1) return arr; // [ str1, str2, str3...]
+
+  const res = new Set(); // 去重
+  for (let i = 0; i < arr.length; ++i) {
+    const item = arr[i];
+    const subStrs = combine(arr.slice(0, i).concat(arr.slice(i + 1)), k - 1);
+    subStrs.forEach((substr) => { // Set亦可forEach
+      res.add(item + "," + substr);
+    });
+  }
+  return res;
+}
+console.log(combine([1, 2, 3, 3, 4], 2));
+Set(13) {
+  '1,2',
+  '1,3',
+  '1,4',
+  '2,1',
+  '2,3',
+  '2,4',
+  '3,1',
+  '3,2',
+  '3,3',
+  '3,4',
+  '4,1',
+  '4,2',
+  '4,3'
+}
+
+```
+
+```
+返回 [数组] ， 不去重
+function combine(arr, k) {
+  if (k === 1) return arr.map((e) => [e]); // 返回当前单元素的组合 [ [e1], [e2], [e3]...]
+
+  const res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    const item = arr[i];
+    const subArrs = combine(arr.slice(0, i).concat(arr.slice(i + 1)), k - 1);
+    subArrs.forEach((arr) => {
+      res.push([item, ...arr]);
+    });
+  }
+  return res;
+}
+
+console.log(combine([1, 2, 3, 4], 2));
+[
+  [ 1, 2 ], [ 1, 3 ],
+  [ 1, 4 ], [ 2, 1 ],
+  [ 2, 3 ], [ 2, 4 ],
+  [ 3, 1 ], [ 3, 2 ],
+  [ 3, 4 ], [ 4, 1 ],
+  [ 4, 2 ], [ 4, 3 ]
+]
+```
+
+
 
 ## 归并排序
 
