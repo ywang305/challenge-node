@@ -4,13 +4,13 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#扁平化">扁平化</a></li>
-    <li><a href="#去除空格trim()">去除空格</a></li>
+    <li><a href="#去除空格trim">去除空格</a></li>
     <li><a href="#字符串全排列">字符串全排列</a></li>
     <li><a href="#归并排序">归并排序</a></li>
     <li><a href="#快速排序">Contact</a></li>
     <li><a href="#setTimeout实现setInterval">setTimeout 实现 setInterval</a></li>
     <li><a href="#防抖">防抖</a></li>
-    <li><a href="#call()">call()</a></li>
+    <li><a href="#call">call</a></li>
     <li><a href="#InstanceOf">InstanceOf</a></li>
     <li><a href="#Clone">Clone</a></li>
 
@@ -36,7 +36,7 @@ function flatten(arr) {
 
 
 
-## 去除空格trim()
+## 去除空格trim
 
 ```js
 function myTrim(str) {
@@ -156,7 +156,7 @@ function debounce(fn, delay) {
 }
 ```
 
-## call()
+## call
 
 ```js
 Function.prototype.myCall = function (context, ...args) {
