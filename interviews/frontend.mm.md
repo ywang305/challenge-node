@@ -1,3 +1,23 @@
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#扁平化">扁平化</a></li>
+    <li><a href="#去除空格trim()">去除空格</a></li>
+    <li><a href="#字符串全排列">字符串全排列</a></li>
+    <li><a href="#归并排序">归并排序</a></li>
+    <li><a href="#快速排序">Contact</a></li>
+    <li><a href="#setTimeout实现setInterval">setTimeout 实现 setInterval</a></li>
+    <li><a href="#防抖">防抖</a></li>
+    <li><a href="#call()">call()</a></li>
+    <li><a href="#InstanceOf">InstanceOf</a></li>
+    <li><a href="#Clone">Clone</a></li>
+
+  </ol>
+</details>
+
+
 ## 扁平化
 
 ```js
@@ -16,7 +36,7 @@ function flatten(arr) {
 
 
 
-## 去除空格 - trim()
+## 去除空格trim()
 
 ```js
 function myTrim(str) {
@@ -110,7 +130,7 @@ function sort(arr) {
 }
 ```
 
-## setTimeout 实现 setInterval
+## setTimeout实现setInterval
 
 ```js
 function myInterval(fn, interval, ...args) {
