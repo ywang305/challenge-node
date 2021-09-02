@@ -23,9 +23,9 @@
     </li>
     <li>
       <details>
-      <summary><a href="#Leetcode">刷刷</a></summary>
+      <summary><a href="#Leetcode">刷主题</a></summary>
       <ul>
-        <li><a href="#39_Combination_Sum">39. Combination Sum </a></li>  
+        <li><a href="#39_Combination_Sum">39. Combination Sum </a></li>
       </ul>
       </details>
     </li>
