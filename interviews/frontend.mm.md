@@ -48,7 +48,7 @@ function myTrim(str) {
 ## 全排列
 
 ```
-// 返回 [字符串], 去重
+// 返回 [string], 去重
 function permute(arr) {
   if (arr.length === 1) return new Set(arr);
   let res = new Set();
@@ -67,7 +67,7 @@ console.log([...res]);
 ```
 
 ```
-// 返回[数组]， 不去重
+// 返回[][]， 不去重
 function permute(arr) {
   if (arr.length === 1) return [arr];
   let res = [];
@@ -95,7 +95,7 @@ console.log(res);
 
 ## 组合
 ```
-// 返回 [字符串], 去重
+// 返回 [string], 去重
 function combine(arr, k) {
   if (k === 1) return arr; // [ str1, str2, str3...]
 
@@ -129,7 +129,7 @@ Set(13) {
 ```
 
 ```
-// 返回 [ 数组 ] ， 不去重
+// 返回 [][] ， 不去重
 function combine(arr, k) {
   if (k === 1) return arr.map((e) => [e]); // 返回当前单元素的组合 [ [e1], [e2], [e3]...]
 
