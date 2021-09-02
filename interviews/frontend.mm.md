@@ -23,9 +23,9 @@
     </li>
     <li>
       <details>
-      <summary><a href="#Leetcode">刷主题</a></summary>
+      <summary>刷主题</summary>
       <ul>
-        <li><a href="#39_Combination_Sum">39. Combination Sum </a></li>
+        <li><a href="#39-Combination-Sum">39. Combination Sum </a></li>
       </ul>
       </details>
     </li>
@@ -285,4 +285,29 @@ function cloneDeep(target,map = new WeakMap()) {
 
 # Leetcode
 
-## 39_Combination_Sum
+## 39 Combination Sum
+```
+var combinationSum = function (candidates, target) {
+  if (target < 0) return [];
+  if (target === 0) return [[]];
+
+  const res = [];
+  for (let i = 0; i < candidates.length; ++i) {
+    const item = candidates[i];
+    /**
+     参数
+      candiates.slice(i)因为解可以包括重估元素 如'2':  [2,2,3]
+      如果直接用 candidates 会存在重复解 如 [2,2,3], [2,3,2], [3,2,2]
+    */
+    const subArrs = combinationSum(candidates.slice(i), target - item);
+    subArrs.forEach((arr) => {
+      res.push([item, ...arr]);
+    });
+  }
+
+  return res;
+};
+
+const res = combinationSum([2, 3, 6, 7], 7);
+console.log(res);   // [ [ 2, 2, 3 ], [ 7 ] ]
+```
