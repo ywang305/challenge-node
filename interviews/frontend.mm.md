@@ -25,7 +25,7 @@
       <details>
       <summary>刷主题</summary>
       <ul>
-        <li><a href="#39-Combination-Sum">39. Combination Sum </a></li>
+        <li><a href="#39.-Combination-Sum">39. Combination Sum </a></li>
       </ul>
       </details>
     </li>
@@ -285,7 +285,7 @@ function cloneDeep(target,map = new WeakMap()) {
 
 # Leetcode
 
-## 39 Combination Sum
+## 39. Combination Sum
 ```
 var combinationSum = function (candidates, target) {
   if (target < 0) return [];
