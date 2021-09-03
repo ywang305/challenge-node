@@ -152,7 +152,7 @@ function combine(arr, k) {
   const res = [];
   for (let i = 0; i < arr.length; ++i) {
     const item = arr[i];
-    const subArrs = combine(arr.slice(0, i).concat(arr.slice(i + 1)), k - 1);
+    const subArrs = combine(arr.slice(0, i).concat(arr.slice(i + 1)), k - 1); // next arr includes prev slice(0,1)
     subArrs.forEach((arr) => {
       res.push([item, ...arr]);
     });
@@ -177,7 +177,7 @@ var combine = function (arr, k) {
   const res = [];
   for (let i = 0; i < arr.length; ++i) {
     const item = arr[i];
-    const subArrs = combine(arr.slice(i + 1), k - 1);
+    const subArrs = combine(arr.slice(i + 1), k - 1); // * next arr since i+1
     subArrs.forEach((arr) => {
       res.push([item, ...arr]);
     });
