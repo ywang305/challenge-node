@@ -111,7 +111,7 @@ console.log(res);
 
 ## 组合
 ```
-// 返回 [string], 去重
+// 返回 [string], 去重(e.g. [1,1,2,3,4]), 不区别 [1,2] and [2,1]
 function combine(arr, k) {
   if (k === 1) return arr; // [ str1, str2, str3...]
 
@@ -145,7 +145,7 @@ Set(13) {
 ```
 
 ```
-// 返回 [][] ， 不去重
+// 返回 [][] ， 不去重, 不区别 [1,2] and [2,1]
 function combine(arr, k) {
   if (k === 1) return arr.map((e) => [e]); // 返回当前单元素的组合 [ [e1], [e2], [e3]...]
 
@@ -170,7 +170,25 @@ console.log(combine([1, 2, 3, 4], 2));
   [ 4, 2 ], [ 4, 3 ]
 ]
 ```
+```
+/** 返回 [][] ， 不去重, 区别 [1,2] and [2,1]  **/
+var combine = function (arr, k) {
+  if (k === 1) return arr.map((e) => [e]);
+  const res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    const item = arr[i];
+    const subArrs = combine(arr.slice(i + 1), k - 1);
+    subArrs.forEach((arr) => {
+      res.push([item, ...arr]);
+    });
+  }
 
+  return res;
+};
+
+const res = combine([1, 2, 3, 4], 2);
+console.log(res);  // [ [ 1, 2 ], [ 1, 3 ], [ 1, 4 ], [ 2, 3 ], [ 2, 4 ], [ 3, 4 ] ]
+```
 
 
 ## 归并排序
