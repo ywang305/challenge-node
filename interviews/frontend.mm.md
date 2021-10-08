@@ -235,7 +235,7 @@ function sort(arr) {
 function myInterval(fn, interval, ...args) {
     let context = this;
     setTimeout(() => {
-        fn.apply(context, args);
+        fn.call(context, ...args);
         myInterval(fn, interval, ...args); //别忘了为它传入参数
     }, interval);
 }
