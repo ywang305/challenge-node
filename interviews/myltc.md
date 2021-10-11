@@ -3,14 +3,14 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#H Index 275 二分动态target">H Index 275 二分动态target</a></li>
+    <li><a href="#H_Index_275_二分动态target">H Index 275 二分动态target</a></li>
 
 
   </ol>
 </details>
 
 
-### H Index 275 二分动态target
+### H_Index_275_二分动态target
 ```js
 // e.g. :  citations = [1,2,6,7,8,9], 答案 4
 var hIndex = function(citations /* 有序 */) {
