@@ -1,16 +1,32 @@
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#HIndex275二分动态target">H Index 275 二分动态target</a></li>
+
+
+  </ol>
+</details>
+
+
+### HIndex275二分动态target
 ```js
-var hIndex = function(citations) {
-    citations.sort((a,b)=>a-b);
+// e.g. :  citations = [1,2,6,7,8,9], 答案 4
+var hIndex = function(citations /* 有序 */) {
     const len = citations.length;
-    
-    for(let i=len; i>=0; --i) {
-        const cntRight = len -i;
-        if(citations[i]===cntRight) return citations[i]; //最优
-        if(citations[i]<cntRight) { //非最优解
-            return cntRight-1;
+    let i = 0, j=len-1;
+    while(i<=j) {
+        const m = i+Math.floor((j-i)/2);
+        let target = len-m; // target每次变! the num of paper in range [mid ... end]
+        if(citations[m]<target) {
+            i = m+1;
+        } else if(citations[m]>target) {
+            j = m-1;
+        } else {
+            return citations[m];
         }
     }
-    
-    return len;
+    return len-i;
 };
 ```
