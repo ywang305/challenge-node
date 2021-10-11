@@ -4,7 +4,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#H_Index_275_二分动态target">H Index 275 (二分动态target)</a></li>
-    <li><a href="#median-of-two-sorted-arrays_4(二分，此消彼长)">median-of-two-sorted-arrays_4(二分，此消彼长)</a></li>
+    <li><a href="#median-of-two-sorted-arrays_4_二分_此消彼长">median-of-two-sorted-arrays_4(二分，此消彼长)</a></li>
     
 
   </ol>
@@ -51,9 +51,7 @@ var hIndex = function(citations /* 有序 */) {
 };
 ```
 
-### median-of-two-sorted-arrays_4(二分，此消彼长)
-
-      
+### median-of-two-sorted-arrays_4_二分_此消彼长
       
 ```js
 /**
