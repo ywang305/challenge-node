@@ -3,8 +3,9 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#H_Index_275_二分动态target">H Index 275 二分动态target</a></li>
-
+    <li><a href="#H_Index_275_二分动态target">H Index 275 (二分动态target)</a></li>
+    <li><a href="#median-of-two-sorted-arrays_4(二分，此消彼长)">median-of-two-sorted-arrays_4(二分，此消彼长)</a></li>
+    
 
   </ol>
 </details>
@@ -47,5 +48,58 @@ var hIndex = function(citations /* 有序 */) {
         }
     }
     return len-i;
+};
+```
+
+### median-of-two-sorted-arrays_4(二分，此消彼长)
+
+      
+      
+```js
+/**
+e.g.  nums1 = [1,2,3,4,5,6,7] 
+      nums2 = [1,2,3,4]
+      len = 11,  half_len = 5, 最终因该 [1,1,2,2,3, `3`, 4,4,5,6,7]
+      
+      对nums2二分搜：
+        (1) m=1, m+1对应nums2的左侧切取长度，则nums1左侧切取长度=halfe_len-m-1,
+            判断 nums2截取点的值 <= nums1截取点之下一位的值, versa vice , 判断 nums1截取点的值 <= nums2截取点之下一位的值
+            注意 num2[m+1] could be overflow
+        
+      
+    ref: https://www.youtube.com/watch?v=q6IEA26hvXc
+
+**/
+var findMedianSortedArrays = function(nums1, nums2) {
+    if(nums1.length<nums2.length) return findMedianSortedArrays(nums2, nums1);
+    
+    const len = nums1.length+nums2.length, halfLen = Math.floor(len/2);
+    
+    let i=0, j=nums2.length-1;
+    let nums2LeftLen=0, nums1LeftLen=halfLen;
+    while(i<=j) {
+        let m = i+Math.floor((j-i)/2);
+        const _nums1LeftLen = halfLen-m-1;
+        if (nums2[m] <= nums1[_nums1LeftLen] 
+                /* 以下注意超界判断 */
+                && (nums1[_nums1LeftLen-1]??-Infinity)<=(nums2[m+1]??Infinity)) {
+            nums1LeftLen = _nums1LeftLen;
+            nums2LeftLen = m+1;
+            break;
+        }
+        if(nums2[m]>nums1[_nums1LeftLen]) {
+            j = m-1;
+        } else {
+            i = m+1;
+        }
+    }
+    
+    if(len%2) { // odd length 
+        /* 以下注意超界判断 */
+        return Math.min(nums1[nums1LeftLen], nums2[nums2LeftLen]??Infinity)
+    } else {
+        /* 以下注意超界判断 */
+        return (Math.max(nums1[nums1LeftLen-1]??-Infinity, nums2[nums2LeftLen-1]??-Infinity) + Math.min(nums1[nums1LeftLen]??Infinity, nums2[nums2LeftLen]??Infinity))/2;
+    }
 };
 ```
