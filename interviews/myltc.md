@@ -3,15 +3,35 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#H_Index_275_二分动态target">H Index 275 (二分动态target)</a></li>
-    <li><a href="#median-of-two-sorted-arrays_4_二分_此消彼长">median-of-two-sorted-arrays_4(二分，此消彼长)</a></li>
-    
-
+    <li><a href="#二分法">二分法</a></li>
+    <li><a href="#UnionFind">UnionFind</a></li>
+    <li><a href="#Trie">Trie</a></li>
+    <li><a href="#Topology">Topology</a></li>
+    <li><a href="#Freqency">Freqency</a></li>
+    <li><a href="#Longest">Longest</a></li>
+    <li><a href="#Max">Max</a></li>
+    <li><a href="#Min">Min</a></li>
   </ol>
 </details>
 
+### UnionFind
 
-### H_Index_275_二分动态target
+### Trie
+
+### Topology
+
+### Freqency
+
+### Longest
+
+### Max
+
+### Min
+
+
+
+### 二分法 
+- H_Index_275_二分动态target
 ```js
 /* e.g. :  citations = [1,2,6,7,8,9], 答案 4
     二分搜索过程 
@@ -51,7 +71,7 @@ var hIndex = function(citations /* 有序 */) {
 };
 ```
 
-### median-of-two-sorted-arrays_4_二分_此消彼长
+- median-of-two-sorted-arrays_4_二分_此消彼长
       
 ```js
 /**
