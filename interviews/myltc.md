@@ -14,23 +14,9 @@
   </ol>
 </details>
 
-### UnionFind
-
-### Trie
-
-### Topology
-
-### Freqency
-
-### Longest
-
-### Max
-
-### Min
-
-
 
 ### 二分法 
+
 - H_Index_275_二分动态target
 ```js
 /* e.g. :  citations = [1,2,6,7,8,9], 答案 4
@@ -121,3 +107,17 @@ var findMedianSortedArrays = function(nums1, nums2) {
     }
 };
 ```
+
+### UnionFind
+
+### Trie
+
+### Topology
+
+### Freqency
+
+### Longest
+
+### Max
+
+### Min
