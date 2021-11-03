@@ -9,7 +9,6 @@
     <li><a href="#Topology">Topology</a></li>
     <li><a href="#Freqency">Freqency</a></li>
     <li><a href="#Longest">Longest</a></li>
-    <li><a href="#MinMax">Mininum or Maximum</a></li>
     <li><a href="#K">K</a></li>
     
   </ol>
@@ -120,5 +119,3 @@ var findMedianSortedArrays = function(nums1, nums2) {
 ### Longest
 
 ### K
-
-### MinMax
