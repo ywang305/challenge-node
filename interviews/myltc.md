@@ -127,7 +127,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
   ```js
   // DP + DFS
    for(let j=0; j<len; ++j) {
-        for(let i=j; i>=0; --i) {
+        for(let i=0; i<=j; ++i) { // i 从 0-> j or j->0 都可以
             dp[i][j] = s[i]===s[j] && (j-i<=2 || dp[i+1][j-1]);
         }
     }
