@@ -123,9 +123,9 @@ var findMedianSortedArrays = function(nums1, nums2) {
 ### 数组
 
 ### 字串
-- [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
+- [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) : DP + DFS
   ```js
-  // DP + DFS
+  // DP 判断 isPalindrome
    for(let j=0; j<len; ++j) {
         for(let i=0; i<=j; ++i) { // i 从 0-> j or j->0 都可以
             dp[i][j] = s[i]===s[j] && (j-i<=2 || dp[i+1][j-1]);
