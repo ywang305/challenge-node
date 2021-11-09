@@ -135,7 +135,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
 - [132 Palindrome Partitioning II 最小回文分割数](https://leetcode.com/problems/palindrome-partitioning-ii/) :  两个 DP
   ```js
   dp2[j] = Math.min(dp2[j], dp2[i-1]+1); 
-          // dp2[i-1]+1解释: 已知i->j是回文，所以[0,i] 和 [i,j]之间增加一个分割
+          // dp2[i-1]+1解释: 已知i->j是回文，所以[0,i-1] 和 [i,j]之间增加一个分割
           // e.g. xabba,  to deduce dp2[4]
           //.     dp2[0]=0,  index 1->4 is palindrome, so there is no parition for the range,
           //      so a parition stay between 0 and 1,  such that dp2[4] = dp2[0] + 1 = 1
