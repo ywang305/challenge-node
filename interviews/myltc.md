@@ -121,7 +121,11 @@ var findMedianSortedArrays = function(nums1, nums2) {
 ### K
 
 ### 数组
-
+- [134. Gas Station](https://leetcode.com/problems/gas-station/) : 此题给定唯一解，Greedy
+  ```js
+    // 累计remain = 总加油-总消耗 >= 0,  唯一解， -> 可以直接从i=0遍历
+  ```
+- 
 ### 字串
 - [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) : DP + DFS
   ```js
