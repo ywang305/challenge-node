@@ -122,8 +122,12 @@ var findMedianSortedArrays = function(nums1, nums2) {
 
 ### 数组
 - [134. Gas Station](https://leetcode.com/problems/gas-station/) : 此题给定唯一解，Greedy
-  ```js
-    // 累计remain = 总加油-总消耗 >= 0,  唯一解， -> 可以直接从i=0遍历
+  ```
+  累计remain = 总加油-总消耗 >= 0,  唯一解， -> 可以直接从i=0遍历
+  ```
+- [135. Candy](https://leetcode.com/problems/candy/) : greedy, 分别从两边推算
+  ```
+  贪婪法应该是tricky最灵活的，就看IQ能不能反应过来了
   ```
 - 
 ### 字串
