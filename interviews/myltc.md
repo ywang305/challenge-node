@@ -11,6 +11,7 @@
     <li><a href="#Longest">Longest</a></li>
     <li><a href="#K">K</a></li>
     <li><a href="#数组">数组</a></li>
+    <li><a href="#字串">字串</a></li>
   </ol>
 </details>
 
@@ -147,5 +148,10 @@ var findMedianSortedArrays = function(nums1, nums2) {
           // e.g. xabba,  to deduce dp2[4]
           //.     dp2[0]=0,  index 1->4 is palindrome, so there is no parition for the range,
           //      so a parition stay between 0 and 1,  such that dp2[4] = dp2[0] + 1 = 1
+  ```
+- [139. Word Break 字符串是否可分割](https://leetcode.com/problems/word-break/submissions/) 经典 DP
+  ```js
+  //dp[i]：s的[0, i)是否可以分割， 设初始[0,0)为空字符串true
+  dp[j] = dp[i] && dict.has(s.slice(i, j));
   ```
 - 
