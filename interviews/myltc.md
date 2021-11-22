@@ -157,4 +157,5 @@ var findMedianSortedArrays = function(nums1, nums2) {
   dp[j] = dp[i] && dict.has(s.slice(i, j));
   ```
 - [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) 经典 DP
-- 
+- [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) TODO
+- [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)  TO-DO
