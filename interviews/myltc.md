@@ -15,9 +15,6 @@
   </ol>
 </details>
 
-- [字串](#字串)
-  * [131. Palindrome Partitioning](#131-Palindrome-Partitioning)
-
 
 ### 二分法 
 
@@ -135,7 +132,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
   ```
 - 
 ### 字串
-#### 131-Palindrome-Partitioning
+
 - [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)\
  DP + DFS
   ```js
