@@ -154,4 +154,5 @@ var findMedianSortedArrays = function(nums1, nums2) {
   //dp[i]：s的[0, i)是否可以分割， 设初始[0,0)为空字符串true
   dp[j] = dp[i] && dict.has(s.slice(i, j));
   ```
+- [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) 经典 DP
 - 
