@@ -132,7 +132,8 @@ var findMedianSortedArrays = function(nums1, nums2) {
   ```
 - 
 ### 字串
-
+- [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) UnionFind,对每个元素计数root
+  
 - [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)\
  DP + DFS
   ```js
@@ -158,4 +159,21 @@ var findMedianSortedArrays = function(nums1, nums2) {
   ```
 - [300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/) 经典 DP
 - [516. Longest Palindromic Subsequence](https://leetcode.com/problems/longest-palindromic-subsequence/) TODO
-- [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)  TO-DO
+- [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+  ```rb
+  def longest_common_subsequence(text1, text2)
+  dp = Array.new(text1.size + 1) { Array.new(text2.size + 1, 0) }
+  text1.size.times do |i|
+    text2.size.times do |j|
+      dp[i + 1][j + 1] = if text1[i] == text2[j]
+                           dp[i][j] + 1
+                         else
+                           [dp[i + 1][j], dp[i][j + 1]].max
+                         end
+    end
+  end
+
+  dp.last.last
+end
+  ```
+- [todo]
