@@ -109,6 +109,12 @@ var findMedianSortedArrays = function(nums1, nums2) {
 };
 ```
 
+- 153. Find Minimum in Rotated Sorted Array
+  ```js
+  res = Math.min(res, nums[l], nums[m]); // 这三个地方可能最小值
+  ```
+
+
 ### UnionFind
 
 ### Trie
