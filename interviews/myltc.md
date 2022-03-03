@@ -122,10 +122,12 @@ var findMedianSortedArrays = function(nums1, nums2) {
 ### Freqency
 
 ### Longest
+- [159.longest-substring-with-at-most-two-distinct-character](https://githleetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)\
+  Sliding Window， Memo： each element最大的index
 
 ### K
 
-### 数组
+### 数组 (DP,Greedy)
 - [134. Gas Station](https://leetcode.com/problems/gas-station/) : 此题给定唯一解，Greedy
   ```
   累计remain = 总加油-总消耗 >= 0,  唯一解， -> 可以直接从i=0遍历
@@ -135,7 +137,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
   贪婪法应该是tricky最灵活的，就看IQ能不能反应过来了
   ```
 - 
-### 字串
+### 字串 (DP,Greedy)
 - [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) UnionFind,对每个元素计数root
   
 - [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)\
